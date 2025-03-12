@@ -40,6 +40,7 @@ public class BaekJoon11404 {
             }
         }
 
+        //출력
         for(int i=1; i<=n; i++){
             for(int k=1; k<=n; k++){
                 if(dist[i][k] == 10000001) System.out.print("0 ");
