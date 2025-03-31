@@ -58,7 +58,6 @@ public class BaekJoon1080 {
             }
         }
 
-        //최솟값이라고 장담할 수 있을까?
         
         System.out.println(count);
     }
