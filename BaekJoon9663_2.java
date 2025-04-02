@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class BaekJoon9663 {
+public class BaekJoon9663_2 {
     static int n, arr[];
     static int count = 0;
 
