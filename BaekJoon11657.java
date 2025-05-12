@@ -11,7 +11,7 @@ class Edge{
     }
 }
 
-public class BaekJoon12657 {
+public class BaekJoon11657 {
     public static void main(String[] args) throws IOException {
         Queue<Edge> queue = new LinkedList<>();
         queue.add(new Edge(1, 1, 0));
