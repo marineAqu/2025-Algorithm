@@ -15,6 +15,7 @@ class Point{
 class BackJoon3055 {
     static int min = Integer.MAX_VALUE;
     static int water[][];
+    static boolean visited[][];
     static int r, c;
     static PriorityQueue<Point> wq = new PriorityQueue<>((o1, o2) -> o1.distance - o2.distance);
     static PriorityQueue<Point> mq  = new PriorityQueue<>((o1, o2) -> o1.distance - o2.distance);
@@ -30,6 +31,7 @@ class BackJoon3055 {
         c = Integer.parseInt(st.nextToken());
 
         String map;
+        visited = new boolean[r][c];
         water = new int[r][c];
         for(int i=0; i<r; i++) Arrays.fill(water[i], -1);
 
@@ -61,16 +63,6 @@ class BackJoon3055 {
         }
 
         checkWater();
-
-        /*
-        for(int i=0; i<r; i++){
-            for(int w=0; w<c; w++){
-                System.out.print(water[i][w] + " ");
-            }
-            System.out.println();
-        }
-        */
-
         
         moveMe();
 
@@ -94,10 +86,14 @@ class BackJoon3055 {
             //이동
             for(int i=0; i<4; i++){
                 if(now.x + dx[i] < 0 || now.x + dx[i] >= c || 
-                   now.y + dy[i] < 0 || now.y + dy[i] >= r || (water[now.y + dy[i]][now.x + dx[i]] <= now.distance + 1 && water[now.y + dy[i]][now.x + dx[i]] >= 0)){
+                   now.y + dy[i] < 0 || now.y + dy[i] >= r || 
+                   (water[now.y + dy[i]][now.x + dx[i]] <= now.distance + 1 && water[now.y + dy[i]][now.x + dx[i]] >= 0) ||
+                   visited[now.y + dy[i]][now.x + dx[i]]
+                  ){
                     continue;
                    }
-                
+
+                visited[now.y + dy[i]][now.x + dx[i]] = true;
                 mq.add(new Point(now.x + dx[i], now.y + dy[i], now.distance + 1));
             }
         }
